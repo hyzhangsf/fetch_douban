@@ -1,14 +1,15 @@
 class Counter:
+
     """
         a thread safe counter class
     """
+
     def __init__(self, start):
 
         self._count = start
         self.lock = threading.Lock()
         self.stopped = False
         self.epilog = None
-
 
     def step(self):
         self.lock.acquire()
@@ -27,7 +28,7 @@ class Counter:
         self.stopped = True
 
     def set_epilog(self, words):
-        self.epilog =  words
+        self.epilog = words
 
     def get_epilog(self, words):
         return self.epilog
